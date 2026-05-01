@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Quiz — MOG HARDER</title>
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%230F0E0C'/><text x='50' y='66' font-family='monospace' font-size='52' font-weight='700' text-anchor='middle' fill='%23C8FF1F'>M</text></svg>" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span><i>●</i> stack designer / live</span>
+    <span>5 questions · ~90 sec</span>
+    <span>output: 3-peptide stack + protocol</span>
+    <span>treasury <i>412.8 SOL</i></span>
+    <span>// for research purposes only</span>
+    <span><i>●</i> stack designer / live</span>
+    <span>5 questions · ~90 sec</span>
+    <span>output: 3-peptide stack + protocol</span>
+    <span>treasury <i>412.8 SOL</i></span>
+    <span>// for research purposes only</span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="shell nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">M</span>
+      <span class="brand-name">Mog Harder<small>Pep · Research · Protocol v0.1</small></span>
+    </a>
+    <nav class="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="index.html#thesis">Why</a>
+      <a class="nav-link active" href="quiz.html">Quiz</a>
+      <a class="nav-link" href="wiki.html">Wiki</a>
+    </nav>
+    <a class="nav-cta" href="index.html#buy">Buy on Pump.fun</a>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom: 30px;">
+  <div class="shell">
+    <div class="hero-eyebrow-row">
+      <span class="eyebrow">// Stack designer</span>
+      <span class="label mono"><span class="live-dot"></span> &nbsp;OPEN — 5 questions</span>
+    </div>
+    <div class="hero-headline">
+      <h1 class="display" style="font-size: clamp(64px, 12vw, 200px);">find your <em class="italic">stack</em><span class="dot" style="color: var(--lab-deep);">.</span></h1>
+    </div>
+    <p style="max-width: 700px; font-size: 18px; color: var(--ink-2); margin-top: 28px;">
+      5 questions. One personalized recommendation. No bullshit, no email gate, no upsell.
+    </p>
+  </div>
+</section>
+
+<section class="quiz-shell">
+  <div class="shell">
+    <div class="quiz-progress" id="progress"></div>
+
+    <div id="questionWrap"><!-- JS injected --></div>
+
+    <div class="quiz-controls" id="controls">
+      <button class="btn btn-ghost" id="prevBtn">Back</button>
+      <button class="btn btn-primary" id="nextBtn">Next</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-mark">mog <em>harder.</em></div>
+  <div class="footer-grid">
+    <div>
+      <h6>// Mission</h6>
+      <p style="max-width: 320px;">Funded by degens. Built for biohackers. Every fee on $MOG funnels into peptide research grants — receipts on-chain, protocols open-source.</p>
+    </div>
+    <div>
+      <h6>// Pages</h6>
+      <a href="index.html">Home</a>
+      <a href="index.html#thesis">Why Peptides</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="wiki.html">Wiki</a>
+    </div>
+    <div>
+      <h6>// Token</h6>
+      <a href="index.html#buy">Buy on Pump.fun</a>
+      <a href="#">Treasury (on-chain)</a>
+      <a href="#">Grants log</a>
+      <a href="#">Bonding curve</a>
+    </div>
+    <div>
+      <h6>// Channels</h6>
+      <a href="#">Telegram</a>
+      <a href="#">X / Twitter</a>
+      <a href="#">GitHub (protocols)</a>
+      <a href="#">Mailing list</a>
+    </div>
+  </div>
+  <div class="footer-foot">
+    <span>© 2026 MOG HARDER · Pep-Research Protocol v0.1</span>
+    <span>Built in the lab · funded on the curve</span>
+  </div>
+  <div class="footer-disclaimer">
+    For research purposes only. Not medical advice. Not financial advice. Always consult a physician.
+  </div>
+</footer>
+
+<script src="peptides.js"></script>
+<script src="app.js"></script>
+<script>
+const QUESTIONS = [
+  {
+    q: "What's your primary goal?",
+    help: "// Pick one — the loudest signal.",
+    key: "goal",
+    options: [
+      { k: "A", val: "muscle", lbl: "Muscle", desc: "Hypertrophy, strength, recovery between sessions." },
+      { k: "B", val: "fatloss", lbl: "Fat Loss", desc: "Body recomp, GLP-1 class, lipolytic agents." },
+      { k: "C", val: "recovery", lbl: "Recovery", desc: "Tendons, gut, post-injury, post-surgery healing." },
+      { k: "D", val: "cognition", lbl: "Cognition", desc: "Focus, mood, BDNF, neuroprotection." },
+      { k: "E", val: "antiaging", lbl: "Anti-Aging", desc: "Longevity, skin, telomeres, mitochondria." },
+      { k: "F", val: "sleep", lbl: "Sleep", desc: "Deep-wave sleep, GH pulse during night." },
+      { k: "G", val: "libido", lbl: "Libido", desc: "Sexual function, melanocortin pathway." },
+    ],
+  },
+  {
+    q: "How aggressive do you want to go?",
+    help: "// Affects dose, stack length, and tier.",
+    key: "intensity",
+    options: [
+      { k: "A", val: "conservative", lbl: "Conservative", desc: "Low dose, well-studied agents only, room to titrate up." },
+      { k: "B", val: "standard", lbl: "Standard", desc: "Mid-range protocols. Balanced effect / risk." },
+      { k: "C", val: "aggressive", lbl: "Aggressive", desc: "Top-tier compounds, full doses, you've done your homework." },
+    ],
+  },
+  {
+    q: "Are you needle-tolerant?",
+    help: "// Subq injections, intranasal, or oral only.",
+    key: "route",
+    options: [
+      { k: "A", val: "needles", lbl: "Subq is fine", desc: "Full peptide universe is on the table." },
+      { k: "B", val: "nasal", lbl: "Intranasal preferred", desc: "Limits to Semax-class, Selank, Oxytocin." },
+      { k: "C", val: "oral", lbl: "Oral / topical only", desc: "Smallest set — Dihexa, GHK-Cu topical, 5-Amino-1MQ." },
+    ],
+  },
+  {
+    q: "Training status?",
+    help: "// Affects how loud your endogenous signaling already is.",
+    key: "training",
+    options: [
+      { k: "A", val: "sedentary", lbl: "Sedentary", desc: "No regular training. Start with foundation protocols." },
+      { k: "B", val: "casual", lbl: "Casual", desc: "1–3 sessions/wk. Recovery-leaning stacks." },
+      { k: "C", val: "serious", lbl: "Serious", desc: "4–6 sessions/wk. Performance + recovery balance." },
+      { k: "D", val: "athlete", lbl: "Competitive athlete", desc: "Daily training. Wash-out windows around testing." },
+    ],
+  },
+  {
+    q: "Stack window?",
+    help: "// How long do you plan to run this cycle?",
+    key: "window",
+    options: [
+      { k: "A", val: "4w", lbl: "4 weeks", desc: "Short cycle. Acute issue or test run." },
+      { k: "B", val: "8w", lbl: "8 weeks", desc: "Standard cycle. Most protocols are tuned for this." },
+      { k: "C", val: "12w", lbl: "12+ weeks", desc: "Long cycle. Built-in deload weeks required." },
+    ],
+  },
+];
+
+/* Goal -> recommended stack (3 peptides each) */
+const STACKS = {
+  muscle: {
+    title: "The Hypertrophy Stack",
+    blurb: "GHRH + GHRP synergy plus a long-acting anabolic backbone. Pulses GH naturally and signals satellite-cell activation under load.",
+    items: [
+      { id: "ipamorelin", role: "GH Pulse", dose: "200 µg", time: "Sub-Q · AM + post-train", note: "Selective ghrelin mimetic — no cortisol/prolactin spike." },
+      { id: "cjc-1295", role: "GHRH Backbone", dose: "100 µg", time: "Sub-Q · AM + PM", note: "Synergizes 1:2 with Ipamorelin for amplified pulse.", overrideName: "CJC-1295 (no DAC)" },
+      { id: "bpc-157", role: "Recovery", dose: "250 µg", time: "Sub-Q · 1× daily", note: "Tendon and joint protection while you train hard." },
+    ],
+  },
+  fatloss: {
+    title: "The Recomp Stack",
+    blurb: "Modern GLP-1 class for satiety + a lipolytic peptide that doesn't kill your appetite. Pair with resistance training to preserve muscle.",
+    items: [
+      { id: "tirzepatide", role: "Satiety / GLP-1", dose: "2.5 → 5 mg", time: "Sub-Q · 1× weekly", note: "Titrate slowly. Most effective injectable in trials." },
+      { id: "aod-9604", role: "Lipolytic", dose: "300 µg", time: "Sub-Q · AM fasted", note: "Targets fat oxidation without growth signaling." },
+      { id: "mots-c", role: "Mito + insulin sens.", dose: "10 mg", time: "Sub-Q · 3×/wk", note: "Mitochondrial AMPK signal — improves metabolic flexibility." },
+    ],
+  },
+  recovery: {
+    title: "The Healing Stack",
+    blurb: "The classic pairing for tendon, ligament, and gut work. Add Thymosin α-1 if you're recovering from infection or surgery.",
+    items: [
+      { id: "bpc-157", role: "Soft tissue", dose: "250–500 µg", time: "Sub-Q · 1–2× daily near injury", note: "Pentadecapeptide. Routes healing factors locally." },
+      { id: "tb-500", role: "Cell migration", dose: "2–5 mg", time: "Sub-Q · 2× weekly loading", note: "Thymosin β-4 fragment. Strong synergy with BPC-157." },
+      { id: "ghk-cu", role: "Skin / collagen", dose: "1–2 mg", time: "Sub-Q + topical AM", note: "Copper peptide — collagen, hair, skin remodeling." },
+    ],
+  },
+  cognition: {
+    title: "The Cognitive Stack",
+    blurb: "Russian nootropic peptides + a synaptic-formation booster. Stack with sleep work for full effect.",
+    items: [
+      { id: "semax", role: "BDNF / focus", dose: "300–600 µg", time: "Intranasal · AM", note: "ACTH-derived. Boosts BDNF and dopamine turnover." },
+      { id: "selank", role: "Anxiolytic", dose: "300 µg", time: "Intranasal · midday", note: "Tuftsin analog. Calm focus without sedation." },
+      { id: "dihexa", role: "Synaptogenesis", dose: "8–35 mg", time: "Oral · daily", note: "Angiotensin-derived. Strong oral bioavailability." },
+    ],
+  },
+  antiaging: {
+    title: "The Longevity Stack",
+    blurb: "Telomere maintenance + immune modulation + mitochondrial signaling. The protocol the longevity crowd actually runs.",
+    items: [
+      { id: "epithalon", role: "Telomerase", dose: "10 mg", time: "Sub-Q · daily × 10 days, 2× yr", note: "Tetrapeptide. Pulse protocol, not chronic." },
+      { id: "thymosin-a1", role: "Immune", dose: "1.6 mg", time: "Sub-Q · 2× weekly", note: "Modulates innate + adaptive immunity." },
+      { id: "mots-c", role: "Mitochondrial", dose: "10 mg", time: "Sub-Q · 3× weekly", note: "Improves insulin sensitivity, exercise capacity." },
+    ],
+  },
+  sleep: {
+    title: "The Sleep Stack",
+    blurb: "Pulse GH while you sleep + push delta-wave depth. Pairs well with magnesium and apigenin (non-peptide).",
+    items: [
+      { id: "dsip", role: "Delta wave", dose: "100–200 µg", time: "Sub-Q · 30 min before bed", note: "Delta Sleep-Inducing Peptide. Short half-life is a feature here." },
+      { id: "sermorelin", role: "GH pulse PM", dose: "200 µg", time: "Sub-Q · pre-bed", note: "GHRH analog — pulses align with natural sleep GH release." },
+      { id: "epithalon", role: "Circadian", dose: "10 mg", time: "Sub-Q · pulse 10 days, 2× yr", note: "Pineal support — deepens sleep architecture." },
+    ],
+  },
+  libido: {
+    title: "The Libido Stack",
+    blurb: "Central melanocortin agonist + upstream HPG-axis activation. Cycle, don't chronic-dose.",
+    items: [
+      { id: "pt-141", role: "MC4R agonist", dose: "1.5–2 mg", time: "Sub-Q · 30–60 min pre", note: "Bremelanotide. CNS-acting, not vascular." },
+      { id: "kisspeptin", role: "HPG axis", dose: "200 µg", time: "Sub-Q · daily AM", note: "Drives endogenous LH/FSH. Re-engages the axis." },
+      { id: "oxytocin", role: "Bonding", dose: "20 IU", time: "Intranasal · pre", note: "Trust, empathy, sexual response modulation." },
+    ],
+  },
+};
+
+/* ---------- State ---------- */
+let step = 0;
+const answers = {};
+
+const wrap = document.getElementById('questionWrap');
+const progress = document.getElementById('progress');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const controls = document.getElementById('controls');
+
+function renderProgress() {
+  const total = QUESTIONS.length;
+  let html = '';
+  for (let i = 0; i < total; i++) {
+    let cls = 'dot';
+    if (i < step) cls += ' done';
+    else if (i === step) cls += ' active';
+    html += `<span class="${cls}">${String(i+1).padStart(2,'0')}</span>`;
+    if (i < total - 1) html += `<span class="line"></span>`;
+  }
+  progress.innerHTML = html;
+}
+
+function renderQuestion() {
+  if (step >= QUESTIONS.length) {
+    renderResult();
+    return;
+  }
+  const q = QUESTIONS[step];
+  const sel = answers[q.key];
+  wrap.innerHTML = `
+    <div class="quiz-card fade-up">
+      <div class="quiz-q">${String(step+1).padStart(2,'0')}. ${q.q}</div>
+      <div class="quiz-help">${q.help}</div>
+      <div class="quiz-options">
+        ${q.options.map(opt => `
+          <button class="quiz-opt ${sel === opt.val ? 'selected' : ''}" data-val="${opt.val}">
+            <span class="key">${opt.k}</span>
+            <div>
+              <div class="lbl">${opt.lbl}</div>
+              <div class="desc">${opt.desc}</div>
+            </div>
+            <span class="pip">${sel === opt.val ? '● selected' : ''}</span>
+          </button>
+        `).join('')}
+      </div>
+    </div>`;
+  wrap.querySelectorAll('.quiz-opt').forEach(b => {
+    b.addEventListener('click', () => {
+      answers[q.key] = b.dataset.val;
+      renderQuestion();
+    });
+  });
+  prevBtn.style.visibility = step === 0 ? 'hidden' : 'visible';
+  nextBtn.textContent = step === QUESTIONS.length - 1 ? 'Get my stack' : 'Next';
+  controls.style.display = 'flex';
+}
+
+function renderResult() {
+  const stack = STACKS[answers.goal] || STACKS.muscle;
+  const intensity = answers.intensity || 'standard';
+  const route = answers.route || 'needles';
+  const train = answers.training || 'casual';
+  const cycleWindow = answers.window || '8w';
+
+  controls.style.display = 'none';
+  progress.innerHTML = QUESTIONS.map((_, i) => `<span class="dot done">${String(i+1).padStart(2,'0')}</span>${i<QUESTIONS.length-1?'<span class="line"></span>':''}`).join('');
+
+  wrap.innerHTML = `
+    <div class="fade-up">
+      <div style="display:flex; justify-content:space-between; align-items:end; gap:24px; flex-wrap:wrap; margin-bottom: 28px;">
+        <div>
+          <span class="eyebrow">// Recommendation · personalized</span>
+          <h2 class="display" style="font-size: clamp(40px, 6vw, 88px); margin-top: 16px;">${stack.title}<span style="color: var(--lab-deep);">.</span></h2>
+        </div>
+        <div class="label mono" style="text-align:right; line-height: 1.8;">
+          GOAL · <b>${answers.goal}</b><br/>
+          INTENSITY · <b>${intensity}</b><br/>
+          ROUTE · <b>${route}</b><br/>
+          TRAINING · <b>${train}</b><br/>
+          WINDOW · <b>${cycleWindow}</b>
+        </div>
+      </div>
+
+      <p style="max-width: 720px; font-size: 17px; color: var(--ink-2); margin-bottom: 36px;">${stack.blurb}</p>
+
+      <div class="quiz-result">
+        <div class="result-stack">
+          ${stack.items.map((it, i) => {
+            const p = window.PEPTIDE_INDEX[it.id] || {};
+            const displayName = it.overrideName || p.n || it.id;
+            return `
+            <a class="result-row" data-pep="${it.id}" href="#p/${it.id}" style="cursor: pointer; text-decoration: none; color: inherit;">
+              <span class="num">${String(i+1).padStart(2,'0')}</span>
+              <div>
+                <div class="nm">${displayName}</div>
+                <div class="ds" style="margin-top: 6px;"><b>${it.dose}</b> · ${it.time}</div>
+                <div class="ds" style="margin-top: 6px; color: var(--ash);">${it.note}</div>
+                <div class="ds" style="margin-top: 8px; color: var(--lab-deep); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;">→ open monograph</div>
+              </div>
+              <div class="ds"></div>
+              <span class="tg">${it.role}</span>
+            </a>`;
+          }).join('')}
+        </div>
+
+        <aside style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="border: 1px solid var(--ink); padding: 24px; background: var(--ink); color: var(--bone);">
+            <div class="label mono" style="color: var(--lab);">// fund the next grant</div>
+            <h3 class="display" style="font-size: 36px; margin: 14px 0; line-height: 1;">Mog harder. <em class="italic" style="color: var(--lab);">Fund science.</em></h3>
+            <p style="font-size: 14px; opacity: 0.85;">Buying $MOG on the bonding curve generates fees that flow straight into the treasury — funding the next peptide research grant.</p>
+            <a href="index.html#buy" class="btn btn-lab" style="margin-top: 18px; border-color: var(--lab); width: 100%; justify-content: center;">Buy $MOG</a>
+          </div>
+          <div style="border: 1px solid var(--ink); padding: 24px; background: var(--paper);">
+            <div class="label mono">// next step</div>
+            <p style="margin-top: 10px; font-size: 14px;">Open the full monograph for each peptide. Sources, half-lives, dose tables, contraindications.</p>
+            <a href="wiki.html" class="btn" style="margin-top: 16px; width: 100%; justify-content: center;">Open Wiki</a>
+          </div>
+          <div style="border: 1px solid var(--rust); padding: 18px; background: color-mix(in srgb, var(--rust) 8%, var(--bone));">
+            <div class="label mono" style="color: var(--rust);">// disclaimer</div>
+            <p style="margin-top: 8px; font-size: 12.5px; line-height: 1.5; color: var(--ink-2);">For research purposes only. Not medical advice. Always consult a qualified physician before initiating any peptide protocol.</p>
+          </div>
+        </aside>
+      </div>
+
+      <div style="display: flex; gap: 12px; margin-top: 36px;">
+        <button class="btn btn-ghost" id="restartBtn">Restart quiz</button>
+        <a href="wiki.html" class="btn btn-primary">Browse all 96 in the Wiki</a>
+      </div>
+    </div>`;
+  document.getElementById('restartBtn').addEventListener('click', () => {
+    step = 0; for (const k in answers) delete answers[k];
+    renderProgress(); renderQuestion();
+  });
+}
+
+prevBtn.addEventListener('click', () => { if (step > 0) { step--; renderProgress(); renderQuestion(); } });
+nextBtn.addEventListener('click', () => {
+  const q = QUESTIONS[step];
+  if (!answers[q.key]) {
+    nextBtn.style.background = 'var(--rust)';
+    nextBtn.style.borderColor = 'var(--rust)';
+    nextBtn.textContent = 'Pick an option';
+    setTimeout(() => {
+      nextBtn.style.background = '';
+      nextBtn.style.borderColor = '';
+      nextBtn.textContent = step === QUESTIONS.length - 1 ? 'Get my stack' : 'Next';
+    }, 1400);
+    return;
+  }
+  step++;
+  renderProgress();
+  renderQuestion();
+});
+
+renderProgress();
+renderQuestion();
+</script>
+</body>
+</html>

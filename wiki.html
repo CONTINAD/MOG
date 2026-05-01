@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Wiki — MOG HARDER</title>
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%230F0E0C'/><text x='50' y='66' font-family='monospace' font-size='52' font-weight='700' text-anchor='middle' fill='%23C8FF1F'>M</text></svg>" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span><i>●</i> wiki / open</span>
+    <span>peptides indexed <i>96</i></span>
+    <span>monographs published <i>34</i></span>
+    <span>last update <i>block 318,442,109</i></span>
+    <span>treasury <i>412.8 SOL</i></span>
+    <span>// for research purposes only</span>
+    <span><i>●</i> wiki / open</span>
+    <span>peptides indexed <i>96</i></span>
+    <span>monographs published <i>34</i></span>
+    <span>last update <i>block 318,442,109</i></span>
+    <span>treasury <i>412.8 SOL</i></span>
+    <span>// for research purposes only</span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="shell nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">M</span>
+      <span class="brand-name">Mog Harder<small>Pep · Research · Protocol v0.1</small></span>
+    </a>
+    <nav class="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="index.html#thesis">Why</a>
+      <a class="nav-link" href="quiz.html">Quiz</a>
+      <a class="nav-link active" href="wiki.html">Wiki</a>
+    </nav>
+    <a class="nav-cta" href="index.html#buy">Buy on Pump.fun</a>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom: 40px;">
+  <div class="shell">
+    <div class="hero-eyebrow-row">
+      <span class="eyebrow">// Open library</span>
+      <span class="label mono"><span class="live-dot"></span> &nbsp;OPEN — no paywalls</span>
+    </div>
+    <div class="hero-headline">
+      <h1 class="display" style="font-size: clamp(64px, 12vw, 200px);">the <em class="italic">wiki</em><span class="dot" style="color: var(--lab-deep);">.</span></h1>
+    </div>
+    <p style="max-width: 700px; font-size: 18px; color: var(--ink-2); margin-top: 28px;">
+      Peptides, dosing, half-lives, mechanisms, research links. No paywalls, no SEO blogspam, no signup walls. Search or filter by goal.
+    </p>
+  </div>
+</section>
+
+<section style="padding: 0 0 60px;">
+  <div class="shell">
+    <div class="wiki-toolbar">
+      <label class="wiki-search">
+        <span class="label mono">Search</span>
+        <input type="text" id="searchInput" placeholder="bpc-157, ghrh, tirzepatide, ipamorelin…" autocomplete="off"/>
+      </label>
+      <div class="wiki-filter-pills" id="filterPills">
+        <button class="pill active" data-filter="all">All</button>
+        <button class="pill" data-filter="Muscle">Muscle</button>
+        <button class="pill" data-filter="Recovery">Recovery</button>
+        <button class="pill" data-filter="Fat Loss">Fat Loss</button>
+        <button class="pill" data-filter="Sleep">Sleep</button>
+        <button class="pill" data-filter="Cognition">Cognition</button>
+        <button class="pill" data-filter="Anti-Aging">Anti-Aging</button>
+        <button class="pill" data-filter="Libido">Libido</button>
+      </div>
+    </div>
+
+    <div class="wiki-count" style="justify-content: space-between; width: 100%;">
+      <span style="display: flex; gap: 8px; align-items: center;">
+        <b id="resultCount">0</b><span>results</span><span style="opacity: 0.5;">· filter:</span><span id="activeFilter">All</span>
+      </span>
+      <span style="display: flex; gap: 10px; align-items: center;">
+        <span style="opacity: 0.5;">// sort</span>
+        <select id="sortSelect" style="background: transparent; border: 1px solid var(--ink); padding: 8px 12px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); cursor: pointer;">
+          <option value="tier">Tier (S → B)</option>
+          <option value="az">A → Z</option>
+          <option value="mw">Molecular weight</option>
+        </select>
+      </span>
+    </div>
+
+    <div class="wiki-grid" id="wikiGrid"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-mark">mog <em>harder.</em></div>
+  <div class="footer-grid">
+    <div>
+      <h6>// Mission</h6>
+      <p style="max-width: 320px;">Funded by degens. Built for biohackers. Every fee on $MOG funnels into peptide research grants — receipts on-chain, protocols open-source.</p>
+    </div>
+    <div>
+      <h6>// Pages</h6>
+      <a href="index.html">Home</a>
+      <a href="index.html#thesis">Why Peptides</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="wiki.html">Wiki</a>
+    </div>
+    <div>
+      <h6>// Token</h6>
+      <a href="index.html#buy">Buy on Pump.fun</a>
+      <a href="#">Treasury (on-chain)</a>
+      <a href="#">Grants log</a>
+      <a href="#">Bonding curve</a>
+    </div>
+    <div>
+      <h6>// Channels</h6>
+      <a href="#">Telegram</a>
+      <a href="#">X / Twitter</a>
+      <a href="#">GitHub (protocols)</a>
+      <a href="#">Mailing list</a>
+    </div>
+  </div>
+  <div class="footer-foot">
+    <span>© 2026 MOG HARDER · Pep-Research Protocol v0.1</span>
+    <span>Built in the lab · funded on the curve</span>
+  </div>
+  <div class="footer-disclaimer">
+    For research purposes only. Not medical advice. Not financial advice. Always consult a physician.
+  </div>
+</footer>
+
+<script src="peptides.js"></script>
+<script src="app.js"></script>
+<script>
+const _UNUSED_LEGACY = [
+  { n: "BPC-157", code: "PEP-001", desc: "Pentadecapeptide derived from gastric juice — accelerates soft-tissue and gut healing via VEGFR-2 upregulation.", cats: ["Recovery"], mw: "1419.55", half: "~4 hr", route: "Sub-Q", tier: "S", tag: "Healing" },
+  { n: "TB-500", code: "PEP-002", desc: "Synthetic fragment of Thymosin Beta-4 — promotes cell migration to injury sites and accelerates wound repair.", cats: ["Recovery", "Muscle"], mw: "4963 Da", half: "2–3 days", route: "Sub-Q / IM", tier: "S", tag: "Repair" },
+  { n: "Sermorelin", code: "PEP-003", desc: "29-amino-acid GHRH analog that stimulates the pituitary to release endogenous growth hormone in pulses.", cats: ["Muscle", "Anti-Aging", "Sleep"], mw: "3358 Da", half: "~12 min", route: "Sub-Q PM", tier: "S", tag: "GH pulse" },
+  { n: "CJC-1295 / DAC", code: "PEP-004", desc: "Long-acting GHRH analog with Drug Affinity Complex — extends half-life from minutes to ~8 days for sustained GH elevation.", cats: ["Muscle", "Anti-Aging", "Fat Loss"], mw: "3647 Da", half: "~8 days", route: "Sub-Q wk", tier: "S", tag: "Long-acting" },
+  { n: "Ipamorelin", code: "PEP-007", desc: "Selective GH secretagogue and ghrelin mimetic that triggers a clean GH pulse without raising cortisol or prolactin.", cats: ["Muscle", "Recovery", "Anti-Aging"], mw: "711.85", half: "~2 hr", route: "Sub-Q", tier: "S", tag: "Clean GH" },
+  { n: "GHK-Cu", code: "PEP-018", desc: "Copper-binding tripeptide naturally found in human plasma — strong skin remodeling, hair, and anti-aging effects.", cats: ["Anti-Aging", "Recovery"], mw: "340.4 Da", half: "~3 hr", route: "Sub-Q / topical", tier: "A", tag: "Remodel" },
+  { n: "Selank", code: "PEP-015", desc: "Russian-developed anxiolytic heptapeptide — analog of tuftsin with cognitive and immunomodulatory effects.", cats: ["Cognition"], mw: "751.9 Da", half: "~1 hr", route: "Intranasal", tier: "A", tag: "Anxiolytic" },
+  { n: "Semax", code: "PEP-014", desc: "Russian nootropic peptide derived from ACTH — boosts BDNF and supports cognition, mood, and neuroprotection.", cats: ["Cognition"], mw: "813.9 Da", half: "~30 min", route: "Intranasal", tier: "S", tag: "BDNF" },
+  { n: "HGH Frag 176-191", code: "PEP-005", desc: "Truncated fragment of growth hormone (residues 176-191) that retains fat-burning effects without GH-related growth signaling.", cats: ["Fat Loss"], mw: "1817 Da", half: "~30 min", route: "Sub-Q", tier: "B", tag: "Lipolytic" },
+  { n: "PT-141", code: "PEP-008", desc: "Bremelanotide — a melanocortin agonist that acts on the central nervous system to enhance sexual arousal in both sexes.", cats: ["Libido"], mw: "1025.2 Da", half: "~2 hr", route: "Sub-Q", tier: "S", tag: "MC4R" },
+  { n: "Epithalon", code: "PEP-039", desc: "Synthetic tetrapeptide that activates telomerase and supports pineal function — researched for longevity and circadian regulation.", cats: ["Anti-Aging", "Sleep"], mw: "390.4 Da", half: "~30 min", route: "Sub-Q", tier: "S", tag: "Telomere" },
+  { n: "Thymosin Alpha-1", code: "PEP-051", desc: "28-amino-acid peptide that modulates innate and adaptive immunity — used clinically for hepatitis and immune support.", cats: ["Recovery", "Anti-Aging"], mw: "3108 Da", half: "~2 hr", route: "Sub-Q", tier: "A", tag: "Immune" },
+  { n: "AOD-9604", code: "PEP-006", desc: "Modified C-terminus fragment of human GH (similar lineage to Frag 176-191) with fat-loss focus and added stability.", cats: ["Fat Loss"], mw: "1815.1 Da", half: "~30 min", route: "Sub-Q", tier: "B", tag: "Lipolytic" },
+  { n: "DSIP", code: "PEP-040", desc: "Delta Sleep-Inducing Peptide — a nonapeptide that promotes delta-wave (deep) sleep and modulates stress response.", cats: ["Sleep"], mw: "850 Da", half: "~7 min", route: "Sub-Q PM", tier: "A", tag: "Delta" },
+  { n: "Kisspeptin", code: "PEP-058", desc: "Upstream regulator of the HPG axis — stimulates GnRH release, driving LH/FSH and downstream sex hormone production.", cats: ["Libido", "Muscle"], mw: "1302.5 Da", half: "~30 min", route: "Sub-Q", tier: "A", tag: "HPG" },
+  { n: "Tesamorelin", code: "PEP-019", desc: "Stabilized GHRH analog approved for HIV-related visceral fat reduction — strong lipolytic effect on belly fat.", cats: ["Fat Loss", "Anti-Aging"], mw: "5135.8 Da", half: "~26 min", route: "Sub-Q", tier: "A", tag: "Visceral" },
+  { n: "GHRP-2", code: "PEP-020", desc: "Potent ghrelin-mimetic GH secretagogue that triggers strong GH pulses, with a mild rise in cortisol and prolactin.", cats: ["Muscle", "Anti-Aging"], mw: "817.94", half: "~1 hr", route: "Sub-Q", tier: "B", tag: "GH pulse" },
+  { n: "GHRP-6", code: "PEP-021", desc: "Older-generation ghrelin-mimetic GH secretagogue — strong GH release with notable hunger and prolactin/cortisol activity.", cats: ["Muscle", "Recovery"], mw: "873.01", half: "~1 hr", route: "Sub-Q", tier: "B", tag: "Hunger" },
+  { n: "Hexarelin", code: "PEP-022", desc: "The most potent GH secretagogue per mcg in the GHRP family, with notable cardioprotective effects in research models.", cats: ["Muscle", "Anti-Aging"], mw: "887.05", half: "~70 min", route: "Sub-Q", tier: "A", tag: "Cardio" },
+  { n: "MGF", code: "PEP-091", desc: "A splice variant of IGF-1 expressed in muscle in response to mechanical loading — drives satellite-cell activation and local hypertrophy.", cats: ["Muscle", "Recovery"], mw: "8907 Da", half: "~7 min", route: "IM local", tier: "A", tag: "Local" },
+  { n: "IGF-1 LR3", code: "PEP-114", desc: "A long-acting IGF-1 analog with reduced binding to IGFBPs, allowing systemic anabolic signaling for hours rather than minutes.", cats: ["Muscle"], mw: "9111 Da", half: "20–30 hr", route: "Sub-Q", tier: "S", tag: "Anabolic" },
+  { n: "IGF-1 DES (1,3)", code: "PEP-115", desc: "Truncated IGF-1 analog with very short systemic activity but high local potency — used for site-specific muscle growth.", cats: ["Muscle", "Recovery"], mw: "7649 Da", half: "~20 min", route: "IM local", tier: "B", tag: "Local" },
+  { n: "Semaglutide", code: "PEP-202", desc: "Long-acting GLP-1 receptor agonist (Ozempic / Wegovy) — drives satiety and glucose control with potent body-weight reduction.", cats: ["Fat Loss"], mw: "4113.6 Da", half: "~7 days", route: "Sub-Q wk", tier: "S", tag: "GLP-1" },
+  { n: "Tirzepatide", code: "PEP-201", desc: "Dual GIP/GLP-1 receptor agonist (Mounjaro / Zepbound) — currently the most effective injectable for body-weight reduction in trials.", cats: ["Fat Loss"], mw: "4813.5 Da", half: "~5 days", route: "Sub-Q wk", tier: "S", tag: "GLP-1" },
+  { n: "Liraglutide", code: "PEP-203", desc: "First-generation GLP-1 receptor agonist (Saxenda / Victoza) — daily-injection predecessor to semaglutide with a shorter half-life.", cats: ["Fat Loss"], mw: "3751.2 Da", half: "~13 hr", route: "Sub-Q daily", tier: "B", tag: "GLP-1" },
+  { n: "MOTS-c", code: "PEP-079", desc: "16-amino-acid mitochondrial-derived peptide that signals via AMPK — improves metabolic flexibility, insulin sensitivity, and exercise capacity.", cats: ["Fat Loss", "Anti-Aging"], mw: "2174 Da", half: "~3 hr", route: "Sub-Q", tier: "A", tag: "Mito" },
+  { n: "Melanotan II", code: "PEP-061", desc: "A non-selective melanocortin agonist that triggers tanning, libido enhancement, and appetite suppression via MC1R/MC3R/MC4R.", cats: ["Libido"], mw: "1024.18", half: "~33 hr", route: "Sub-Q", tier: "B", tag: "Tan/Libido" },
+  { n: "Oxytocin", code: "PEP-060", desc: "The 'bonding' nonapeptide — modulates social cognition, trust, sexual response, and empathy via central oxytocin receptors.", cats: ["Libido"], mw: "1007.2 Da", half: "~3 min", route: "Intranasal", tier: "B", tag: "Bonding" },
+  { n: "Cerebrolysin", code: "PEP-066", desc: "Peptide complex derived from porcine brain proteins — neurotrophic and neuroprotective, used clinically for stroke recovery and dementia.", cats: ["Cognition", "Anti-Aging"], mw: "complex", half: "varies", route: "IM / IV", tier: "A", tag: "Neurotrophic" },
+  { n: "Dihexa", code: "PEP-067", desc: "Angiotensin-derived peptidomimetic with strong oral bioavailability and a profound effect on synaptic formation via HGF/c-Met activation.", cats: ["Cognition"], mw: "560.7 Da", half: "~10 hr", route: "Oral", tier: "A", tag: "Synaptic" },
+  { n: "P21", code: "PEP-068", desc: "A 4-aa peptide derived from CNTF — promotes neurogenesis and synaptic plasticity in research models.", cats: ["Cognition", "Anti-Aging"], mw: "525.6 Da", half: "~4 hr", route: "Intranasal", tier: "B", tag: "Neurogenesis" },
+  { n: "FOXO4-DRI", code: "PEP-082", desc: "A modified peptide that selectively kills senescent cells (senolytic) by disrupting the FOXO4-p53 interaction.", cats: ["Anti-Aging"], mw: "5398 Da", half: "short", route: "Sub-Q", tier: "B", tag: "Senolytic" },
+  { n: "Humanin", code: "PEP-083", desc: "A 24-aa mitochondrial-derived peptide with cytoprotective effects against neuronal death and metabolic stress.", cats: ["Anti-Aging", "Cognition"], mw: "2687.2 Da", half: "~3 hr", route: "Sub-Q", tier: "B", tag: "Mito" },
+  { n: "5-Amino-1MQ", code: "PEP-090", desc: "Small-molecule NNMT inhibitor (commonly grouped with peptide stacks) — increases NAD+ and supports fat loss + muscle preservation.", cats: ["Fat Loss", "Anti-Aging"], mw: "159.2 Da", half: "~6 hr", route: "Oral", tier: "B", tag: "NAD+" },
+  { n: "LL-37", code: "PEP-094", desc: "Human cathelicidin peptide — antimicrobial, immunomodulatory, and being studied for chronic infection clearance.", cats: ["Recovery"], mw: "4493 Da", half: "~30 min", route: "Sub-Q", tier: "B", tag: "Antimicrobial" },
+];
+
+const grid = document.getElementById('wikiGrid');
+const searchInput = document.getElementById('searchInput');
+const filterPills = document.querySelectorAll('#filterPills .pill');
+const resultCount = document.getElementById('resultCount');
+const activeFilterEl = document.getElementById('activeFilter');
+const sortSelect = document.getElementById('sortSelect');
+
+let activeFilter = 'all';
+let activeSearch = '';
+let activeSort = 'tier';
+
+const TIER_ORDER = { S: 0, A: 1, B: 2, C: 3 };
+
+function render() {
+  const q = activeSearch.trim().toLowerCase();
+  let filtered = window.PEPTIDES.filter(p => {
+    const matchCat = activeFilter === 'all' || p.cats.includes(activeFilter);
+    const matchSearch = !q
+      || p.n.toLowerCase().includes(q)
+      || (p.short || '').toLowerCase().includes(q)
+      || (p.code || '').toLowerCase().includes(q)
+      || (p.tag || '').toLowerCase().includes(q)
+      || (p.cas || '').toLowerCase().includes(q)
+      || (p.seq || '').toLowerCase().includes(q);
+    return matchCat && matchSearch;
+  });
+
+  if (activeSort === 'tier') {
+    filtered.sort((a, b) => (TIER_ORDER[a.tier] ?? 9) - (TIER_ORDER[b.tier] ?? 9) || a.n.localeCompare(b.n));
+  } else if (activeSort === 'az') {
+    filtered.sort((a, b) => a.n.localeCompare(b.n));
+  } else if (activeSort === 'mw') {
+    filtered.sort((a, b) => parseFloat(String(a.mw)) - parseFloat(String(b.mw)));
+  }
+
+  grid.innerHTML = filtered.map(p => `
+    <article class="peptide-card" data-pep="${p.id}">
+      <span class="tag">${p.tag || ''}</span>
+      <div class="meta-row">
+        <span>${p.code}</span>
+        <span>Tier · <b class="tier-${p.tier}">${p.tier}</b></span>
+      </div>
+      <div>
+        <div class="name">${p.n}</div>
+        <div class="formula" style="margin-top:6px;">MW ${p.mw || '—'} · ${p.route || '—'}</div>
+      </div>
+      <p class="desc">${p.short || ''}</p>
+      <div class="stat-grid">
+        <div class="stat"><span class="k">Half-life</span><span class="v">${p.half || '—'}</span></div>
+        <div class="stat"><span class="k">Route</span><span class="v">${p.route || '—'}</span></div>
+      </div>
+      <div class="lib-cats" style="display:flex; gap:6px; flex-wrap:wrap; padding-top: 8px;">
+        ${p.cats.map(c=>`<span style="font-family:var(--font-mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ash); padding:3px 7px; border:1px solid var(--line-strong);">${c}</span>`).join('')}
+      </div>
+      <a href="#p/${p.id}" class="view">Open monograph</a>
+    </article>
+  `).join('');
+
+  resultCount.textContent = String(filtered.length).padStart(2, '0');
+  activeFilterEl.textContent = activeFilter === 'all' ? 'All' : activeFilter;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div style="grid-column: 1 / -1; padding: 80px 40px; text-align: center; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--paper);">
+      <div class="display" style="font-size: 48px;">No matches.</div>
+      <p style="margin-top: 12px; color: var(--ash); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;">Try a different filter or search term.</p>
+    </div>`;
+  }
+}
+
+filterPills.forEach(btn => btn.addEventListener('click', () => {
+  filterPills.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = btn.dataset.filter;
+  render();
+}));
+
+searchInput.addEventListener('input', (e) => { activeSearch = e.target.value; render(); });
+if (sortSelect) sortSelect.addEventListener('change', e => { activeSort = e.target.value; render(); });
+
+render();
+</script>
+</body>
+</html>
